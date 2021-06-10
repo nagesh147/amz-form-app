@@ -11,7 +11,7 @@ const field = (props) => {
   //   if (formItem.touched && !formItem.valid) {
   //     classes.push('invalid')
   //   }
-  console.log('rendered field', formItem)
+  // console.log('rendered field', formItem)
 
   switch (formItem.dataType) {
     case 'radio':

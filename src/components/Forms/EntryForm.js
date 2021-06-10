@@ -10,6 +10,7 @@ export default function EntryForm() {
   const [jsonData, setJsonData] = useState(data)
 
   const orderHandler = (currentOrder) => {
+    console.log('order handler')
     currentOrder++
     const nextFormItem = jsonData.filter((i) => i.order === currentOrder)
 
@@ -60,9 +61,11 @@ export default function EntryForm() {
     }
   }
 
-  const fieldChange = (event, field, index) => {
-    const updatedField = { ...field }
-    updatedField.value = event.target.value
+  const fieldChange = (event, formItem, index) => {
+    console.log({ event, formItem, index })
+    debugger
+    // const updatedField = { ...field }
+    // updatedField.value = event.target.value
     //   updatedField.valid = this.checkValidity(updatedField);
 
     //   const updatedFields =  [...this.state.fields];
@@ -77,8 +80,6 @@ export default function EntryForm() {
     //     fields: updatedFields,
     //     formValid: formValid
     // })
-
-    console.log('field changed')
   }
 
   // const checkValidity = (field) => {
