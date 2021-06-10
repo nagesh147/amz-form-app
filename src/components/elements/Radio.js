@@ -13,14 +13,19 @@ const Radio = ({ formItem, orderHandler, currentOrder }) => {
       >
         <label>{formItem.question}</label>
         <br />
-
-        <input
-          type={formItem.dataType}
-          className="mbt5"
-          value={formItem.dataTypeValue.split(',')[0]}
-          {...register('orderOne', { required: formItem.isRequired })}
-        />
-        <label>{formItem.dataTypeValue.split(',')[0]}</label>
+        {formItem.dataTypeValue.split(',').map((radioValue, index) => {
+          return (
+            <>
+              <input
+                type={formItem.dataType}
+                className="mbt5"
+                // value={radioValue}
+                {...register('orderOne', { required: formItem.isRequired })}
+              />
+              <label>{radioValue}</label>
+            </>
+          )
+        })}
       </div>
       {/* {selectedOption === 'Yes' && orderHandler(currentOrder)}
       {selectedOption === 'Injury' && orderHandler(currentOrder)} */}
