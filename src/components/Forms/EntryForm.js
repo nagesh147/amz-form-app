@@ -9,67 +9,31 @@ import Field from '../../components/elements/Field'
 export default function EntryForm() {
   const [jsonData, setJsonData] = useState(data)
 
-  const orderHandler = (currentOrder) => {
-    console.log('order handler')
-    currentOrder++
-    const nextFormItem = jsonData.filter((i) => i.order === currentOrder)
+  // const orderHandler = (currentOrder) => {
+  //   console.log('order handler')
+  //   currentOrder++
+  //   const nextFormItem = jsonData.filter((i) => i.order === currentOrder)
 
-    return (
-      nextFormItem &&
-      nextFormItem.map((formItem) => {
-        return (
-          <div className="innerFormItem">
-            <label>{formItem.question}</label>
-            {renderElement(formItem)}
-          </div>
-        )
-      })
-    )
-  }
+  //   return (
+  //     nextFormItem &&
+  //     nextFormItem.map((formItem) => {
+  //       return (
+  //         <div className="innerFormItem">
+  //           <label>{formItem.question}</label>
+  //           {renderElement(formItem)}
+  //         </div>
+  //       )
+  //     })
+  //   )
+  // }
 
-  const renderElement = (formItem) => {
-    switch (formItem.dataType) {
-      case 'radio':
-        return (
-          <Radio
-            jsonData={jsonData}
-            formItem={formItem}
-            currentOrder={formItem.order}
-            orderHandler={orderHandler}
-          />
-        )
-      case 'picklist':
-        return (
-          <Checkbox
-            jsonData={jsonData}
-            formItem={formItem}
-            currentOrder={formItem.order}
-            orderHandler={orderHandler}
-          />
-        )
-      case 'text':
-        return (
-          <Text
-            jsonData={jsonData}
-            formItem={formItem}
-            currentOrder={formItem.order}
-            orderHandler={orderHandler}
-          />
-        )
-      default:
-        return
-    }
-  }
+  const optionChangeHandler = (event, formItem, index) => {
+    const updatedField = { ...Field }
+    updatedField.value = event.target.value
+    // updatedField.valid = this.checkValidity(updatedField)
 
-  const fieldChange = (event, formItem, index) => {
-    console.log({ event, formItem, index })
-    debugger
-    // const updatedField = { ...field }
-    // updatedField.value = event.target.value
-    //   updatedField.valid = this.checkValidity(updatedField);
-
-    //   const updatedFields =  [...this.state.fields];
-    //   updatedFields.splice(index,1,updatedField  );
+    const updatedFields = [...jsonData]
+    updatedFields.splice(index, 1, updatedField)
     //   let formValid = true;
     //   for(let field of updatedFields){
     //      if(!field.valid){
@@ -78,8 +42,10 @@ export default function EntryForm() {
     //  }
     // this.setState({
     //     fields: updatedFields,
-    //     formValid: formValid
+    //     // formValid: formValid
     // })
+    console.log({ event, formItem, index })
+    console.log({ updatedField, updatedFields })
   }
 
   // const checkValidity = (field) => {
@@ -127,7 +93,9 @@ export default function EntryForm() {
             key={formItem.id}
             // fieldConfig={data}
             //  focused={(event)=>fieldBlur(event,field,index)}
-            onChangeHandler={(event) => fieldChange(event, formItem, index)}
+            onChangeHandler={(event) =>
+              optionChangeHandler(event, formItem, index)
+            }
           />
         )
       })}
