@@ -18,8 +18,7 @@ const field = (props) => {
       element = (
         <Radio
           formItem={formItem}
-          currentOrder={formItem.order}
-          orderHandler={props.onChangeHandler}
+          optionChangeHandler={props.optionChangeHandler}
         />
       )
       break
@@ -27,28 +26,23 @@ const field = (props) => {
       element = (
         <Checkbox
           formItem={formItem}
-          currentOrder={formItem.order}
-          orderHandler={props.onChangeHandler}
+          optionChangeHandler={props.optionChangeHandler}
         />
       )
       break
     case 'text':
       element = (
         <Text
-          // jsonData={jsonData}
           formItem={formItem}
-          currentOrder={formItem.order}
-          orderHandler={props.onChangeHandler}
+          optionChangeHandler={props.optionChangeHandler}
         />
       )
       break
     case 'select':
       element = (
         <Radio
-          //   jsonData={jsonData}
           formItem={formItem}
-          currentOrder={formItem.order}
-          orderHandler={props.onChangeHandler}
+          optionChangeHandler={props.optionChangeHandler}
         />
       )
       break
