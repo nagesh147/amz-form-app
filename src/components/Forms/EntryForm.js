@@ -19,12 +19,7 @@ export default function EntryForm() {
           <div className="innerFormItem">
             <Field
               formItem={formItem}
-              // orderHandler={orderHandler}
-              // currentOrder={currentOrder}
-
               key={formItem.id}
-              // fieldConfig={data}
-              //  focused={(event)=>fieldBlur(event,field,index)}
               optionChangeHandler={(event) =>
                 optionChangeHandler(event, formItem, index)
               }
@@ -45,7 +40,7 @@ export default function EntryForm() {
 
     console.log({ selectedOption, event, formItem, index })
 
-    if (selectedOptionVal === 'Yes') {
+    if (selectedOptionVal === 'Yes' || selectedOptionVal === 'Injury') {
       return orderHandler(formItem.order)
     }
   }

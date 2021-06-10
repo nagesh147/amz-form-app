@@ -50,7 +50,7 @@
   {
     "question": "Is this leave of absence related to the following?  (select all that apply)",
 
-    "dataType": "picklist",
+    "dataType": "radio",
 
     "dataTypeValue": "Surgery,Psychological Or Behavioural Health,Physical",
 

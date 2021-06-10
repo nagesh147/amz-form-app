@@ -5,13 +5,13 @@ const Radio = ({ formItem, optionChangeHandler }) => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
   const { register } = useForm()
+
   return (
     <>
       <div
         onChange={(e) => {
           setEvent(e)
           setSelectedOption(e.target.value)
-          optionChangeHandler(e)
         }}
       >
         <label>{formItem.question}</label>
