@@ -11,12 +11,6 @@ const Text = ({ formItem, orderHandler, currentOrder }) => {
         {formItem.question}
       </label>
       <br />
-      {/* <input
-        type={formItem.dataType}
-        className="textBox"
-        placeholder={'Please provide details'}
-        // onChange={(event) => handleChange(field_id, event)}
-      /> */}
       <input
         type={formItem.dataType}
         className="textBox"
