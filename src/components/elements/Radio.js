@@ -17,18 +17,19 @@ const Radio = ({ formItem, optionChangeHandler }) => {
         }}
       >
         <label className="label">
-          <span className="astr">* </span>
+          {formItem.isRequired && <span className="astr">* </span>}
           {formItem.question}
         </label>
         <br />
         {formItem.dataTypeValue.split(',').map((radioValue, index) => {
           return (
-            <div className="radioBtnWrapper">
+            <div className="radioBtnWrapper" key={radioValue}>
               <input
                 type={formItem.dataType}
-                className="mbt5"
                 value={radioValue}
-                {...register('orderOne', { required: formItem.isRequired })}
+                {...register(formItem.id, {
+                  required: formItem.isRequired,
+                })}
               />
               <label className="optionLabel">{radioValue}</label>
             </div>
