@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import data from '../../data.json'
 import Field from '../../components/elements/Field'
-// import './styles.css'
+import './styles.css'
 
 export default function EntryForm() {
   const [jsonData, setJsonData] = useState(data)
@@ -80,7 +80,7 @@ export default function EntryForm() {
   }
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
+    <form onSubmit={(event) => onSubmit(event)} className="entryForm">
       {jsonData
         .filter((i) => i.order === 1)
         .map((formItem, index) => {
@@ -99,7 +99,9 @@ export default function EntryForm() {
             />
           )
         })}
-      <button type="submit">Submit</button>
+      <button className="btn" type="submit">
+        Submit
+      </button>
     </form>
   )
 }

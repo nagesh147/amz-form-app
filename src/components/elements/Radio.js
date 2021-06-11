@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 // import '../../forms/styles.css'
+import './styles.css'
 
 const Radio = ({ formItem, optionChangeHandler }) => {
   const [selectedOption, setSelectedOption] = useState(null)
@@ -15,19 +16,22 @@ const Radio = ({ formItem, optionChangeHandler }) => {
           setSelectedOption(e.target.value)
         }}
       >
-        <label>{formItem.question}</label>
+        <label className="label">
+          <span className="astr">* </span>
+          {formItem.question}
+        </label>
         <br />
         {formItem.dataTypeValue.split(',').map((radioValue, index) => {
           return (
-            <>
+            <div className="radioBtnWrapper">
               <input
                 type={formItem.dataType}
                 className="mbt5"
                 value={radioValue}
                 {...register('orderOne', { required: formItem.isRequired })}
               />
-              <label>{radioValue}</label>
-            </>
+              <label className="optionLabel">{radioValue}</label>
+            </div>
           )
         })}
       </div>

@@ -1,6 +1,6 @@
 [
   {
-    "question": "ONE Is the leave of absence for your own injury or illness?",
+    "question": "Is the leave of absence for your own injury or illness?",
 
     "dataType": "radio",
 
@@ -15,7 +15,7 @@
     "id": "lkdsjf239487"
   },
   {
-    "question": "TWO Is this leave of absence for an injury or illness?",
+    "question": "Is this leave of absence for an injury or illness?",
 
     "dataType": "radio",
 

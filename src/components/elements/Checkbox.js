@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 // import '../../forms/styles.css'
+import './styles.css'
 
 const Checkbox = ({ formItem, orderHandler, currentOrder }) => {
   const { register } = useForm()
@@ -14,7 +15,7 @@ const Checkbox = ({ formItem, orderHandler, currentOrder }) => {
           value={formItem}
           {...register('orderOne', { required: formItem.isRequired })}
         />
-        <label>{formItem}</label>
+        <label className="label">{formItem}</label>
       </div>
     )
   })

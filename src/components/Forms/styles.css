@@ -1,4 +1,12 @@
 .entryForm {
   background-color: aliceblue;
   padding: 0 15px;
+  border-radius: 5px;
+  color: #1ec2cb;
+}
+.btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
 }

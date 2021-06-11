@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="appHeader">
-        <h2>Own Illness or Injury Leave Questions</h2>
+        <h3 className="question">Own Illness or Injury Leave Questions</h3>
         <EntryForm />
       </div>
     </div>
