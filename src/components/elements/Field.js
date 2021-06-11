@@ -2,7 +2,7 @@ import React from 'react'
 import Radio from '../elements/Radio'
 import Text from '../elements/Text'
 import Checkbox from '../elements/Checkbox'
-// import '../../forms/styles.css'
+import './styles.css'
 
 const field = (props) => {
   const formItem = props.formItem
@@ -47,7 +47,7 @@ const field = (props) => {
       break
   }
 
-  return <div className="field-wrapper">{element}</div>
+  return <div className="fieldWrapper">{element}</div>
 }
 
 export default field
