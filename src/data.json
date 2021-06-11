@@ -1,0 +1,67 @@
+[
+  {
+    "question": "Is the leave of absence for your own injury or illness?",
+
+    "dataType": "radio",
+
+    "dataTypeValue": "Yes,No",
+
+    "order": 1,
+
+    "isRequired": true,
+
+    "hasChildren": true,
+
+    "id": "lkdsjf239487"
+  },
+  {
+    "question": "Is this leave of absence for an injury or illness?",
+
+    "dataType": "radio",
+
+    "dataTypeValue": "Injury,Illness",
+
+    "order": 2,
+
+    "isRequired": true,
+
+    "selectedOption": "Yes",
+
+    "hasChildren": false,
+
+    "id": "lkdsjf239sedads7"
+  },
+
+  {
+    "question": "Reason",
+
+    "dataType": "text",
+
+    "staticMessage": "This option should be selected when you need time off for your own injury or illness. If you need time off for a different reason, please go back and select a different leave of absence reason.",
+
+    "order": 3,
+
+    "selectedOption": "No",
+
+    "hasChildren": false,
+
+    "id": "lkd234234sesjf239487"
+  },
+  {
+    "question": "Is this leave of absence related to the following?  (select all that apply)",
+
+    "dataType": "picklist",
+
+    "dataTypeValue": "Surgery,Psychological Or Behavioural Health,Physical",
+
+    "order": 3,
+
+    "isRequired": true,
+
+    "selectedOption": "Yes",
+
+    "hasChildren": true,
+
+    "id": "lkdsjf239s8dfn4389487"
+  }
+]

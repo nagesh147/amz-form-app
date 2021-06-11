@@ -1,0 +1,46 @@
+.label {
+  padding: 0 15px;
+  border-radius: 5px;
+  color: teal;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.optionLabel {
+  color: #000;
+  font-size: 16px;
+}
+.radioBtnWrapper {
+  padding: 0 20px;
+}
+.astr {
+  color: red;
+}
+
+input[type='radio'] {
+  border: 0px;
+  width: 10px;
+  height: 10px;
+}
+input[type='radio'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-clip: content-box;
+  background-color: #e7e6e7;
+  border-radius: 50%;
+  border: 2px solid #00000026;
+}
+input[type='radio']:checked {
+  background-color: steelblue;
+}
+.textBox {
+  padding: 2px 5px;
+  margin: 5px 25px;
+}
+
+.checkboxWrapper {
+  margin: 0 25px;
+}
+.cbLabel {
+  padding: 0 5px;
+}
