@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './styles.css'
 import data from '../../data.json'
 import Field from '../../components/elements/Field'
+// import './styles.css'
 
 export default function EntryForm() {
   const [jsonData, setJsonData] = useState(data)
@@ -33,7 +33,6 @@ export default function EntryForm() {
 
   const optionChangeHandler = (event, formItem, index) => {
     let selectedOptionVal = event.target.value
-    console.log('in option change handler')
     const updatedField = { ...Field }
     const updatedFields = [...jsonData]
     updatedFields.splice(index, 1, updatedField)
@@ -75,7 +74,9 @@ export default function EntryForm() {
 
   const onSubmit = (event) => {
     event.preventDefault()
-    alert('data submitted')
+    const formData = new FormData(event.target)
+    event.preventDefault()
+    console.log({ formData })
   }
 
   return (

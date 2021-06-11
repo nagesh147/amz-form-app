@@ -1,4 +1,5 @@
 import React from 'react'
+// import '../../forms/styles.css'
 
 const Text = ({ formItem, orderHandler, currentOrder }) => {
   return (

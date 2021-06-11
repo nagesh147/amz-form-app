@@ -2,16 +2,13 @@ import React from 'react'
 import Radio from '../elements/Radio'
 import Text from '../elements/Text'
 import Checkbox from '../elements/Checkbox'
+// import '../../forms/styles.css'
 
 const field = (props) => {
   const formItem = props.formItem
   let element = null
   let classes = ['field']
   let errorMessage = null
-  //   if (formItem.touched && !formItem.valid) {
-  //     classes.push('invalid')
-  //   }
-  // console.log('rendered field', formItem)
 
   switch (formItem.dataType) {
     case 'radio':
