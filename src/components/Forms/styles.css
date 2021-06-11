@@ -5,9 +5,12 @@
 }
 .btn {
   font-size: 14px;
-  padding: 6px 12px;
   cursor: pointer;
   margin: 15px 15px;
   border-radius: 5px;
-  border: 1px solid #70809024;
+  background-color: #008296;
+  border: 1px solid #008296;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  outline: 0;
 }
