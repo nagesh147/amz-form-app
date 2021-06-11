@@ -1,19 +1,29 @@
 import React from 'react'
-// import '../../forms/styles.css'
+import { useForm } from 'react-hook-form'
+import './styles.css'
 
 const Text = ({ formItem, orderHandler, currentOrder }) => {
+  const { register } = useForm()
   return (
-    <div className="mbt5">
+    <div>
       <label className="label">
-        <span className="astr">* </span>
+        {formItem.isRequired && <span className="astr">* </span>}
         {formItem.question}
       </label>
       <br />
-      <input
+      {/* <input
         type={formItem.dataType}
         className="textBox"
         placeholder={'Please provide details'}
         // onChange={(event) => handleChange(field_id, event)}
+      /> */}
+      <input
+        type={formItem.dataType}
+        className="textBox"
+        placeholder={'Please provide details'}
+        {...register(formItem.id, {
+          required: formItem.isRequired,
+        })}
       />
     </div>
   )
