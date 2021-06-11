@@ -33,3 +33,14 @@ input[type='radio'] {
 input[type='radio']:checked {
   background-color: steelblue;
 }
+.textBox {
+  padding: 2px 5px;
+  margin: 5px 25px;
+}
+
+.checkboxWrapper {
+  margin: 0 25px;
+}
+.cbLabel {
+  padding: 0 5px;
+}

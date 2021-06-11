@@ -4,10 +4,14 @@ import React from 'react'
 const Text = ({ formItem, orderHandler, currentOrder }) => {
   return (
     <div className="mbt5">
-      {/* <label> {formItem.question} </label> */}
+      <label className="label">
+        <span className="astr">* </span>
+        {formItem.question}
+      </label>
+      <br />
       <input
         type={formItem.dataType}
-        className="mbt5"
+        className="textBox"
         placeholder={'Please provide details'}
         // onChange={(event) => handleChange(field_id, event)}
       />
