@@ -32,16 +32,13 @@ export default function EntryForm() {
   }
 
   const optionChangeHandler = (event, formItem, index) => {
-    let selectedOptionVal = event.target.value
     const updatedField = { ...Field }
     const updatedFields = [...jsonData]
     updatedFields.splice(index, 1, updatedField)
 
     console.log({ selectedOption, event, formItem, index })
 
-    if (selectedOptionVal === 'Yes' || selectedOptionVal === 'Injury') {
-      return orderHandler(formItem.order)
-    }
+    return orderHandler(formItem.order)
   }
 
   // const checkValidity = (field) => {
