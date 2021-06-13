@@ -7,6 +7,11 @@ const Radio = ({ formItem, optionChangeHandler }) => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
   const { register } = useForm()
+  const renderNextCheck = (event) => {
+    if (selectedOption === 'Yes' || selectedOption === 'Injury') {
+      return optionChangeHandler(event)
+    }
+  }
 
   return (
     <>
@@ -36,8 +41,7 @@ const Radio = ({ formItem, optionChangeHandler }) => {
           )
         })}
       </div>
-      {selectedOption === 'Yes' && optionChangeHandler(event)}
-      {selectedOption === 'Injury' && optionChangeHandler(event)}
+      {renderNextCheck(event)}
     </>
   )
 }
