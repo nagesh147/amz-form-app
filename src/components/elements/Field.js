@@ -7,15 +7,15 @@ import './styles.css'
 const field = (props) => {
   const formItem = props.formItem
   let element = null
-  let classes = ['field']
-  let errorMessage = null
+  // let classes = ['field']
+  // let errorMessage = null
 
   switch (formItem.dataType) {
     case 'radio':
       element = (
         <Radio
           formItem={formItem}
-          optionChangeHandler={props.optionChangeHandler}
+          renderNextOrderFields={props.renderNextOrderFields}
         />
       )
       break
@@ -23,7 +23,7 @@ const field = (props) => {
       element = (
         <Checkbox
           formItem={formItem}
-          optionChangeHandler={props.optionChangeHandler}
+          renderNextOrderFields={props.renderNextOrderFields}
         />
       )
       break
@@ -31,7 +31,7 @@ const field = (props) => {
       element = (
         <Text
           formItem={formItem}
-          optionChangeHandler={props.optionChangeHandler}
+          renderNextOrderFields={props.renderNextOrderFields}
         />
       )
       break
@@ -39,7 +39,7 @@ const field = (props) => {
       element = (
         <Radio
           formItem={formItem}
-          optionChangeHandler={props.optionChangeHandler}
+          renderNextOrderFields={props.renderNextOrderFields}
         />
       )
       break

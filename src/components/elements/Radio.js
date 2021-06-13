@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form'
 // import '../../forms/styles.css'
 import './styles.css'
 
-const Radio = ({ formItem, optionChangeHandler }) => {
+const Radio = ({ formItem, renderNextOrderFields }) => {
+  const { register } = useForm()
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
-  const { register } = useForm()
-  const renderNextCheck = (event) => {
+  const renderNextCheck = (e) => {
+    let nextOrder = formItem.order
     if (selectedOption === 'Yes' || selectedOption === 'Injury') {
-      return optionChangeHandler(event)
+      nextOrder++
+      return renderNextOrderFields(e, formItem, nextOrder)
     }
   }
 
