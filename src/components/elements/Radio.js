@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 // import '../../forms/styles.css'
 import './styles.css'
 
-const Radio = ({ formItem, renderNextOrderFields }) => {
+const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler }) => {
   const { register } = useForm()
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
@@ -21,6 +21,7 @@ const Radio = ({ formItem, renderNextOrderFields }) => {
         onChange={(e) => {
           setEvent(e)
           setSelectedOption(e.target.value)
+          setFormDataHandler(formItem.id, e.target.value)
         }}
       >
         <label className="label">

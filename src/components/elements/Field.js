@@ -16,6 +16,7 @@ const field = (props) => {
         <Radio
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
+          setFormDataHandler={props.setFormDataHandler}
         />
       )
       break
@@ -24,6 +25,7 @@ const field = (props) => {
         <Checkbox
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
+          setFormDataHandler={props.setFormDataHandler}
         />
       )
       break
@@ -32,14 +34,7 @@ const field = (props) => {
         <Text
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
-        />
-      )
-      break
-    case 'select':
-      element = (
-        <Radio
-          formItem={formItem}
-          renderNextOrderFields={props.renderNextOrderFields}
+          setFormDataHandler={props.setFormDataHandler}
         />
       )
       break

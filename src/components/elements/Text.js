@@ -2,10 +2,14 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import './styles.css'
 
-const Text = ({ formItem, orderHandler, currentOrder }) => {
+const Text = ({ formItem, setFormDataHandler }) => {
   const { register } = useForm()
   return (
-    <div>
+    <div
+      onChange={(e) => {
+        setFormDataHandler(formItem.id, e.target.value)
+      }}
+    >
       <label className="label">
         {formItem.isRequired && <span className="astr">* </span>}
         {formItem.question}
