@@ -47,7 +47,7 @@ const field = (props) => {
       break
   }
 
-  return <div className="fieldWrapper">{element}</div>
+  return <React.Fragment>{element}</React.Fragment>
 }
 
 export default field

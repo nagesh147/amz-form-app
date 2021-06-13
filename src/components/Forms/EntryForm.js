@@ -34,7 +34,6 @@ export default function EntryForm() {
   const onSubmit = (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    event.preventDefault()
     console.log({ formData })
   }
 
