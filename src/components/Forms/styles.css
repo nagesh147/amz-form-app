@@ -1,6 +1,6 @@
 .entryForm {
   background-color: #f0f8ffa1;
-  padding: 0 15px;
+  padding: 15px 15px;
   border-radius: 5px;
 }
 .btn {
@@ -13,7 +13,5 @@
   color: #fff;
   padding: 0.5rem 1.5rem;
   outline: 0;
-}
-.fieldWrapper {
-  padding-top: 15px;
+  font-weight: 600;
 }

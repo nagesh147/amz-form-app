@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import jsonData from '../../data.json'
 import Field from '../../components/elements/Field'
 import './styles.css'
 
 export default function EntryForm() {
+  const [values, setValues] = useState({})
   const renderNextOrderFields = (event, formItem, nextOrder) => {
     return renderFormFields(nextOrder)
   }
@@ -31,11 +32,18 @@ export default function EntryForm() {
   //   return isValid
   // }
 
+  const setFormDataHandler = (fieldId, value) => {
+    console.log({ fieldId, value })
+    setValues((currentValues) => {
+      currentValues[fieldId] = value
+      return currentValues
+    })
+  }
+
   const onSubmit = (event) => {
     event.preventDefault()
-    const formData = new FormData(event.target)
-    event.preventDefault()
-    console.log({ formData })
+    const data = new FormData(event.target)
+    console.log({ values })
   }
 
   const renderFormFields = (nextOrder = 1) => {
@@ -48,6 +56,7 @@ export default function EntryForm() {
             formItem={formItem}
             key={formItem.id}
             renderNextOrderFields={renderNextOrderFields}
+            setFormDataHandler={setFormDataHandler}
           />
         ))
     return <>{el}</>
