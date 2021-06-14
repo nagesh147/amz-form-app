@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import jsonData from '../../data.json'
 import Field from '../../components/elements/Field'
+import { useForm } from 'react-hook-form'
 import './styles.css'
 
 export default function EntryForm() {
+  const { register, handleSubmit } = useForm()
+
   const [values, setValues] = useState({})
   const renderNextOrderFields = (event, formItem, nextOrder) => {
     return renderFormFields(nextOrder)
@@ -40,11 +43,7 @@ export default function EntryForm() {
     })
   }
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.target)
-    console.log({ values })
-  }
+  const onSubmit = (data) => alert(JSON.stringify(data))
 
   const renderFormFields = (nextOrder = 1) => {
     const el =
@@ -52,19 +51,31 @@ export default function EntryForm() {
       jsonData
         .filter((i) => i.order === nextOrder)
         .map((formItem, index) => (
-          <Field
-            formItem={formItem}
-            key={formItem.id}
-            renderNextOrderFields={renderNextOrderFields}
-            setFormDataHandler={setFormDataHandler}
-          />
+          <>
+            {
+              <Field
+                formItem={formItem}
+                key={formItem.id}
+                renderNextOrderFields={renderNextOrderFields}
+                setFormDataHandler={setFormDataHandler}
+              />
+            }
+            {/* <input
+              {...register('lastnmeekdsfdjlj', {
+                required: true,
+                maxLength: 20,
+              })}
+            /> */}
+          </>
         ))
+
     return <>{el}</>
   }
 
   return (
-    <form onSubmit={(event) => onSubmit(event)} className="entryForm">
+    <form className="entryForm" onSubmit={handleSubmit(onSubmit)}>
       {renderFormFields()}
+
       <button className="btn" type="submit">
         Submit
       </button>
