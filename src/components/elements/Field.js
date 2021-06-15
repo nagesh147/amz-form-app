@@ -2,9 +2,11 @@ import React from 'react'
 import Radio from '../elements/Radio'
 import Text from '../elements/Text'
 import Checkbox from '../elements/Checkbox'
+import { useForm } from 'react-hook-form'
 import './styles.css'
 
-const field = (props) => {
+const Field = (props) => {
+  const { register, handleSubmit } = useForm()
   const formItem = props.formItem
   let element = null
   // let classes = ['field']
@@ -45,4 +47,4 @@ const field = (props) => {
   return <React.Fragment>{element}</React.Fragment>
 }
 
-export default field
+export default Field
