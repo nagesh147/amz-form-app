@@ -26,24 +26,21 @@ export default function EntryForm() {
     const el =
       jsonData &&
       jsonData
-        .filter((i) => i.order === nextOrder)
+        .filter((i) => {
+          if (nextOrder !== 1) {
+            return i.order === nextOrder && i.selectedOption === 'Yes'
+          } else if (nextOrder === 1) {
+            return i.order === nextOrder
+          }
+          return ''
+        })
         .map((formItem, index) => (
-          <>
-            {
-              <Field
-                formItem={formItem}
-                key={formItem.id}
-                renderNextOrderFields={renderNextOrderFields}
-                setFormDataHandler={setFormDataHandler}
-              />
-            }
-            {/* <input
-              {...register('lastnmeekdsfdjlj', {
-                required: true,
-                maxLength: 20,
-              })}
-            /> */}
-          </>
+          <Field
+            formItem={formItem}
+            key={formItem.id}
+            renderNextOrderFields={renderNextOrderFields}
+            setFormDataHandler={setFormDataHandler}
+          />
         ))
 
     return <>{el}</>
