@@ -34,7 +34,7 @@ const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
           })}
         </div>
       </div>
-      {renderNextCheck(event)}
+      {event && renderNextCheck(event)}
     </>
   )
 }

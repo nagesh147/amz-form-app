@@ -29,7 +29,7 @@ const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
           })}
         </div>
       </div>
-      {renderNextCheck(eventEl)}
+      {eventEl && renderNextCheck(eventEl)}
     </>
   )
 }
