@@ -9,8 +9,8 @@ export default function EntryForm() {
 
   const [values, setValues] = useState({})
   const renderNextOrderFields = (event, formItem) => {
-    const selectedVal = event.target.value;
-    const name = formItem.name;
+    const selectedVal = event.target.value
+    const name = formItem.name
     return renderFormFields(selectedVal, name)
   }
 
@@ -30,11 +30,15 @@ export default function EntryForm() {
       jsonData
         .filter((i) => {
           if (identifier !== '') {
-            return i.selectedOption === selectedVal && i.parentIdentifier === identifier;
+            return (
+              i.selectedOption === selectedVal &&
+              i.parentIdentifier === identifier
+            )
           } else {
-            return i.parentIdentifier === identifier;
+            return i.parentIdentifier === identifier
           }
         })
+        // form
         .map((formItem) => (
           <Controller
             name={formItem.name}
@@ -50,7 +54,7 @@ export default function EntryForm() {
               />
             )}
             rules={{
-              required: formItem.isRequired
+              required: formItem.isRequired,
             }}
           />
         ))
