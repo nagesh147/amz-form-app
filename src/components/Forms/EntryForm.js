@@ -14,14 +14,6 @@ export default function EntryForm() {
     return renderFormFields(selectedVal, name)
   }
 
-  const setFormDataHandler = (fieldId, value) => {
-    console.log({ fieldId, value })
-    setValues((currentValues) => {
-      currentValues[fieldId] = value
-      return currentValues
-    })
-  }
-
   const onSubmit = (data) => console.log(JSON.stringify(data))
 
   const renderFormFields = (selectedVal = '', identifier = '') => {
@@ -38,9 +30,9 @@ export default function EntryForm() {
             return i.parentIdentifier === identifier
           }
         })
-        // form
         .map((formItem) => (
           <Controller
+            key={formItem.name}
             name={formItem.name}
             control={control}
             defaultValue=""
@@ -48,7 +40,6 @@ export default function EntryForm() {
               <Field
                 formItem={formItem}
                 renderNextOrderFields={renderNextOrderFields}
-                setFormDataHandler={setFormDataHandler}
                 value={value}
                 onChange={onChange}
               />
@@ -64,7 +55,6 @@ export default function EntryForm() {
   return (
     <form className="entryForm" onSubmit={handleSubmit(onSubmit)}>
       {renderFormFields()}
-
       <button className="btn" type="submit">
         Submit
       </button>

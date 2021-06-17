@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-// import '../../forms/styles.css'
 import './styles.css'
-
-const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler, onChange }) => {
+import { v4 as uuid_v4 } from 'uuid'
+const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
   const renderNextCheck = (e) => {
@@ -17,7 +16,6 @@ const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler, onChange }
         onChange={(e) => {
           setEvent(e)
           setSelectedOption(e.target.value)
-          setFormDataHandler(formItem.id, e.target.value)
         }}
       >
         <label className="label">
@@ -25,21 +23,21 @@ const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler, onChange }
           {formItem.question}
         </label>
         <br />
-        <div className="radioBtnWrapper" key={formItem.id}>
-        {formItem.dataTypeValue.split(',').map((radioValue) => {
-          return (
-            <div>
-              <input
-                type={formItem.dataType}
-                value={radioValue}
-                htmlFor={radioValue}
-                onChange={onChange}
-                name={formItem.id}
-              />
-              <label className="optionLabel">{radioValue}</label>
-            </div>
-          )
-        })}
+        <div className="radioBtnWrapper">
+          {formItem.dataTypeValue.split(',').map((radioValue) => {
+            return (
+              <div key={uuid_v4()}>
+                <input
+                  type={formItem.dataType}
+                  value={radioValue}
+                  htmlFor={radioValue}
+                  onChange={onChange}
+                  name={formItem.id}
+                />
+                <label className="optionLabel">{radioValue}</label>
+              </div>
+            )
+          })}
         </div>
       </div>
       {renderNextCheck(event)}

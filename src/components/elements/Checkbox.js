@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './styles.css'
 
-const Checkbox = ({ formItem, renderNextOrderFields, setFormDataHandler, onChange }) => {
+const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
 
@@ -16,7 +16,6 @@ const Checkbox = ({ formItem, renderNextOrderFields, setFormDataHandler, onChang
         onChange={(e) => {
           setEvent(e)
           setSelectedOption(e.target.value)
-          setFormDataHandler(formItem.id, e.target.value)
         }}
       >
         <label className="label">
@@ -24,20 +23,20 @@ const Checkbox = ({ formItem, renderNextOrderFields, setFormDataHandler, onChang
           {formItem.question}
         </label>
         <div className="checkboxWrapper" key={formItem.id}>
-        {formItem.dataTypeValue.split(',').map((checkValue) => {
-          return (
-            <div>
-              <input
-                type={'checkbox'}
-                value={checkValue}
-                htmlFor={checkValue}
-                onChange={(e) => onChange(e.target.checked)}
-                name={formItem.dataTypeValue}
-              />
-              <label className="optionLabel">{checkValue}</label>
-            </div>
-          )
-        })}
+          {formItem.dataTypeValue.split(',').map((checkValue) => {
+            return (
+              <div>
+                <input
+                  type={'checkbox'}
+                  value={checkValue}
+                  htmlFor={checkValue}
+                  onChange={(e) => onChange(e.target.checked)}
+                  name={formItem.dataTypeValue}
+                />
+                <label className="optionLabel">{checkValue}</label>
+              </div>
+            )
+          })}
         </div>
       </div>
       {renderNextCheck(event)}
