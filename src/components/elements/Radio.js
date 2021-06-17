@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
 // import '../../forms/styles.css'
 import './styles.css'
 
-const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler }) => {
-  const { register } = useForm()
+const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler, onChange }) => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
   const renderNextCheck = (e) => {
-    let nextOrder = formItem.order
     if (selectedOption === 'Yes' || selectedOption === 'Injury') {
-      nextOrder++
-      return renderNextOrderFields(e, formItem, nextOrder)
+      return renderNextOrderFields(e, formItem)
     }
   }
 
@@ -29,20 +25,22 @@ const Radio = ({ formItem, renderNextOrderFields, setFormDataHandler }) => {
           {formItem.question}
         </label>
         <br />
-        {formItem.dataTypeValue.split(',').map((radioValue, index) => {
+        <div className="radioBtnWrapper" key={formItem.id}>
+        {formItem.dataTypeValue.split(',').map((radioValue) => {
           return (
-            <div className="radioBtnWrapper" key={radioValue}>
+            <div>
               <input
                 type={formItem.dataType}
                 value={radioValue}
-                {...register(formItem.id, {
-                  required: formItem.isRequired,
-                })}
+                htmlFor={radioValue}
+                onChange={onChange}
+                name={formItem.id}
               />
               <label className="optionLabel">{radioValue}</label>
             </div>
           )
         })}
+        </div>
       </div>
       {renderNextCheck(event)}
     </>
