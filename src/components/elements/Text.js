@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './styles.css'
 
-const Text = ({ formItem, onChange }) => {
-  const [values, setvalues] = useState(null);
+const Text = ({ formItem, onChange, renderNextOrderFields }) => {
+  const renderNextCheck = (e) =>
+    e && e.target.value && renderNextOrderFields(e, formItem)
   return (
     <div
-        onChange={(e) => {
-          // setEvent(e)
-          setvalues(e.target.value)
-          // setFormDataHandler(formItem.id, e.target.value)
-        }}
-      >
+      onChange={(e) => {
+        renderNextCheck(e)
+      }}
+    >
       <label className="label">
         {formItem.isRequired && <span className="astr">* </span>}
         {formItem.question}
@@ -20,7 +19,6 @@ const Text = ({ formItem, onChange }) => {
         type={formItem.dataType}
         className="textBox"
         placeholder={formItem.dataType}
-        onChange={onChange}
       />
     </div>
   )
