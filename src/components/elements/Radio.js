@@ -1,23 +1,12 @@
 import React, { useState } from 'react'
 import './styles.css'
-import { v4 as uuid_v4 } from 'uuid'
 const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
-  const [selectedOption, setSelectedOption] = useState(null)
-  const [event, setEvent] = useState(null)
-  const renderNextCheck = (e) => {
-    if (selectedOption === 'Yes' || selectedOption === 'Injury') {
-      return renderNextOrderFields(e, formItem)
-    }
-  }
+  const [eventEl, setEventEl] = useState(null)
+  const renderNextCheck = (e) => e && renderNextOrderFields(e, formItem)
 
   return (
     <>
-      <div
-        onChange={(e) => {
-          setEvent(e)
-          setSelectedOption(e.target.value)
-        }}
-      >
+      <div className="questionItem" onChange={(e) => setEventEl(e)}>
         <label className="label">
           {formItem.isRequired && <span className="astr">* </span>}
           {formItem.question}
@@ -26,7 +15,7 @@ const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
         <div className="radioBtnWrapper">
           {formItem.dataTypeValue.split(',').map((radioValue) => {
             return (
-              <div key={uuid_v4()}>
+              <div>
                 <input
                   type={formItem.dataType}
                   value={radioValue}
@@ -40,7 +29,7 @@ const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
           })}
         </div>
       </div>
-      {renderNextCheck(event)}
+      {renderNextCheck(eventEl)}
     </>
   )
 }

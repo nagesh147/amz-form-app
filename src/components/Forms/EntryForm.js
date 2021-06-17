@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import jsonData from '../../data.json'
 import Field from '../elements/Field'
 import { useForm, Controller } from 'react-hook-form'
@@ -7,14 +7,16 @@ import './styles.css'
 export default function EntryForm() {
   const { handleSubmit, control } = useForm()
 
-  const [values, setValues] = useState({})
   const renderNextOrderFields = (event, formItem) => {
     const selectedVal = event.target.value
     const name = formItem.name
+    console.log({ selectedVal, name })
     return renderFormFields(selectedVal, name)
   }
 
-  const onSubmit = (data) => console.log(JSON.stringify(data))
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data))
+  }
 
   const renderFormFields = (selectedVal = '', identifier = '') => {
     const el =

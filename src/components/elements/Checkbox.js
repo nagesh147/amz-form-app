@@ -2,22 +2,14 @@ import React, { useState } from 'react'
 import './styles.css'
 
 const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
-  const [selectedOption, setSelectedOption] = useState(null)
   const [event, setEvent] = useState(null)
 
-  const renderNextCheck = (e) => {
-    if (selectedOption === 'Surgery') {
-      return renderNextOrderFields(e, formItem)
-    }
-  }
+  const renderNextCheck = (e) =>
+    e && e.target.checked && renderNextOrderFields(e, formItem)
+
   return (
     <>
-      <div
-        onChange={(e) => {
-          setEvent(e)
-          setSelectedOption(e.target.value)
-        }}
-      >
+      <div>
         <label className="label">
           {formItem.isRequired && <span className="astr">* </span>}
           {formItem.question}
@@ -30,7 +22,10 @@ const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
                   type={'checkbox'}
                   value={checkValue}
                   htmlFor={checkValue}
-                  onChange={(e) => onChange(e.target.checked)}
+                  onChange={(e) => {
+                    setEvent(e)
+                    onChange(e.target.checked)
+                  }}
                   name={formItem.dataTypeValue}
                 />
                 <label className="optionLabel">{checkValue}</label>

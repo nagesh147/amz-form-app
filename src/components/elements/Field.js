@@ -24,7 +24,13 @@ const Field = (props) => {
         />
       )
     case 'text':
-      return <Text formItem={formItem} onChange={props.onChange} />
+      return (
+        <Text
+          formItem={formItem}
+          renderNextOrderFields={props.renderNextOrderFields}
+          onChange={props.onChange}
+        />
+      )
     default:
       break
   }

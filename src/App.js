@@ -5,7 +5,9 @@ function App() {
   return (
     <div className="App">
       <div className="appHeader">
-        <h3 className="question">Own Illness or Injury Leave Questions new</h3>
+        <h3 className="pageQuestion">
+          Own Illness or Injury Leave Questions new
+        </h3>
         <EntryForm />
       </div>
     </div>
