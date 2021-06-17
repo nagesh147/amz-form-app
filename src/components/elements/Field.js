@@ -13,6 +13,7 @@ const Field = (props) => {
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
+          value={props.value}
         />
       )
     case 'picklist':
@@ -21,6 +22,7 @@ const Field = (props) => {
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
+          value={props.value}
         />
       )
     case 'text':
@@ -29,6 +31,7 @@ const Field = (props) => {
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
+          value={props.value}
         />
       )
     default:

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './styles.css'
-const Radio = ({ formItem, renderNextOrderFields, onChange }) => {
+const Radio = ({ formItem, renderNextOrderFields, onChange, value }) => {
   const [eventEl, setEventEl] = useState(null)
   const renderNextCheck = (e) => e && renderNextOrderFields(e, formItem)
 

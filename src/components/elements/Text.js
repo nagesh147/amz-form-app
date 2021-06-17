@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const Text = ({ formItem, onChange, renderNextOrderFields }) => {
+const Text = ({ formItem, onChange, renderNextOrderFields, value }) => {
   const renderNextCheck = (e) =>
     e && e.target.value && renderNextOrderFields(e, formItem)
   return (
