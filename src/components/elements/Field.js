@@ -8,29 +8,28 @@ const Field = (props) => {
   const formItem = props.formItem
   switch (formItem.dataType) {
     case 'radio':
-      return <Radio
+      return (
+        <Radio
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
-          setFormDataHandler={props.setFormDataHandler}
           onChange={props.onChange}
         />
+      )
     case 'picklist':
-      return <Checkbox
+      return (
+        <Checkbox
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
-          setFormDataHandler={props.setFormDataHandler}
           onChange={props.onChange}
         />
+      )
     case 'text':
-      return <Text
-          formItem={formItem}
-          onChange={props.onChange}
-        />
+      return <Text formItem={formItem} onChange={props.onChange} />
     default:
       break
   }
 
-  return null;
+  return null
 }
 
 export default Field
