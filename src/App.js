@@ -1,5 +1,5 @@
 import './App.css'
-import EntryForm from './components/forms/EntryForm'
+import EntryForm from './components/Forms/EntryForm'
 
 function App() {
   return (
