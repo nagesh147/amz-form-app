@@ -5,7 +5,14 @@ import { useForm, Controller } from 'react-hook-form'
 import './styles.css'
 
 export default function EntryForm() {
-  const { handleSubmit, control } = useForm()
+  const { handleSubmit, control } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    defaultValues: {},
+    criteriaMode: 'all',
+    shouldFocusError: true,
+    shouldUnregister: true,
+  })
 
   const renderNextOrderFields = (event, formItem) => {
     const selectedVal = event.target.value
@@ -38,7 +45,11 @@ export default function EntryForm() {
             name={formItem.name}
             control={control}
             defaultValue=""
-            render={({ field: { onChange, value }, fieldState: { error } }) => (
+            render={({
+              field: { onChange, value, name, ref, onBlur },
+              fieldState: { error, invalid },
+              formState: { isValid, isSubmitSuccessful },
+            }) => (
               <Field
                 formItem={formItem}
                 renderNextOrderFields={renderNextOrderFields}
