@@ -2,49 +2,35 @@ import React from 'react'
 import Radio from '../elements/Radio'
 import Text from '../elements/Text'
 import Checkbox from '../elements/Checkbox'
-import { useForm } from 'react-hook-form'
 import './styles.css'
 
 const Field = (props) => {
-  const { register, handleSubmit } = useForm()
   const formItem = props.formItem
-  let element = null
-  // let classes = ['field']
-  // let errorMessage = null
-
   switch (formItem.dataType) {
     case 'radio':
-      element = (
-        <Radio
+      return <Radio
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
           setFormDataHandler={props.setFormDataHandler}
+          onChange={props.onChange}
         />
-      )
-      break
     case 'picklist':
-      element = (
-        <Checkbox
+      return <Checkbox
           formItem={formItem}
           renderNextOrderFields={props.renderNextOrderFields}
           setFormDataHandler={props.setFormDataHandler}
+          onChange={props.onChange}
         />
-      )
-      break
     case 'text':
-      element = (
-        <Text
+      return <Text
           formItem={formItem}
-          renderNextOrderFields={props.renderNextOrderFields}
-          setFormDataHandler={props.setFormDataHandler}
+          onChange={props.onChange}
         />
-      )
-      break
     default:
       break
   }
 
-  return <React.Fragment>{element}</React.Fragment>
+  return null;
 }
 
 export default Field

@@ -1,15 +1,16 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState } from 'react'
 import './styles.css'
 
-const Text = ({ formItem, setFormDataHandler }) => {
-  const { register } = useForm()
+const Text = ({ formItem, onChange }) => {
+  const [values, setvalues] = useState(null);
   return (
     <div
-      onChange={(e) => {
-        setFormDataHandler(formItem.id, e.target.value)
-      }}
-    >
+        onChange={(e) => {
+          // setEvent(e)
+          setvalues(e.target.value)
+          // setFormDataHandler(formItem.id, e.target.value)
+        }}
+      >
       <label className="label">
         {formItem.isRequired && <span className="astr">* </span>}
         {formItem.question}
@@ -18,10 +19,8 @@ const Text = ({ formItem, setFormDataHandler }) => {
       <input
         type={formItem.dataType}
         className="textBox"
-        placeholder={'Please provide details'}
-        {...register(formItem.id, {
-          required: formItem.isRequired,
-        })}
+        placeholder={formItem.dataType}
+        onChange={onChange}
       />
     </div>
   )
