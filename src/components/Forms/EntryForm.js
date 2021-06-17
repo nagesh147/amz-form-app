@@ -14,28 +14,39 @@ export default function EntryForm() {
     shouldUnregister: true,
   })
 
-  const renderNextOrderFields = (event, formItem) => {
+  const renderNextOrderFields = (event, formItem, optionalArg) => {
     const selectedVal = event.target.value
     const name = formItem.name
-    console.log({ selectedVal, name })
-    return renderFormFields(selectedVal, name)
+    console.log({ selectedVal, name, optionalArg })
+    return renderFormFields(selectedVal, name, optionalArg)
   }
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data))
   }
 
-  const renderFormFields = (selectedVal = '', identifier = '') => {
+  const renderFormFields = (
+    selectedVal = '',
+    identifier = '',
+    optionalArg = ''
+  ) => {
     const el =
       jsonData &&
       jsonData
         .filter((i) => {
-          if (identifier !== '') {
+          if (
+            optionalArg &&
+            identifier === i.parentIdentifier &&
+            optionalArg[i.selectedOption]
+          ) {
+            console.log({ optionalArg, i })
+            return i.parentIdentifier === identifier
+          } else if (!optionalArg && identifier !== '') {
             return (
               i.selectedOption === selectedVal &&
               i.parentIdentifier === identifier
             )
-          } else {
+          } else if (!optionalArg) {
             return i.parentIdentifier === identifier
           }
         })

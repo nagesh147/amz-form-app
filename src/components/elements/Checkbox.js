@@ -1,11 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
 
-const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
+const Checkbox = ({ formItem, renderNextOrderFields, onChange, value }) => {
+  console.log(value)
   const [event, setEvent] = useState(null)
+  const [selectedOptions, setSelectedOptions] = useState([])
+
+  useEffect(() => {
+    let cbOptions = {}
+    formItem.dataTypeValue.split(',').map((checkValue) => {
+      cbOptions[checkValue] = false
+    })
+    setSelectedOptions(cbOptions)
+  }, [])
+
+  const selectedOptionsHandler = (e, checkValue) => {
+    setSelectedOptions((prevState) => ({
+      ...prevState,
+      [checkValue]: e.target.checked,
+    }))
+  }
 
   const renderNextCheck = (e) =>
-    e && e.target.checked && renderNextOrderFields(e, formItem)
+    renderNextOrderFields(e, formItem, selectedOptions)
 
   return (
     <>
@@ -23,6 +40,7 @@ const Checkbox = ({ formItem, renderNextOrderFields, onChange }) => {
                   value={checkValue}
                   htmlFor={checkValue}
                   onChange={(e) => {
+                    selectedOptionsHandler(e, checkValue)
                     setEvent(e)
                     onChange(e.target.checked)
                   }}
