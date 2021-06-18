@@ -34,19 +34,15 @@ export default function EntryForm() {
       jsonData &&
       jsonData
         .filter((i) => {
-          if (
-            optionalArg &&
-            identifier === i.parentIdentifier &&
-            optionalArg[i.selectedOption]
-          ) {
-            console.log({ optionalArg, i })
-            return i.parentIdentifier === identifier
-          } else if (!optionalArg && identifier !== '') {
+          if (identifier !== '' && !optionalArg) {
             return (
               i.selectedOption === selectedVal &&
               i.parentIdentifier === identifier
             )
-          } else if (!optionalArg) {
+          } else if (identifier !== '' && optionalArg) {
+            if (optionalArg[i.selectedOption])
+              return i.parentIdentifier === identifier
+          } else {
             return i.parentIdentifier === identifier
           }
         })
