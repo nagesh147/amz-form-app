@@ -14,6 +14,9 @@ const Field = (props) => {
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
           value={props.value}
+          error={props.error}
+          invalid={props.invalid}
+          ref={props.ref}
         />
       )
     case 'picklist':
@@ -23,6 +26,9 @@ const Field = (props) => {
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
           value={props.value}
+          error={props.error}
+          invalid={props.invalid}
+          ref={props.ref}
         />
       )
     case 'text':
@@ -32,6 +38,9 @@ const Field = (props) => {
           renderNextOrderFields={props.renderNextOrderFields}
           onChange={props.onChange}
           value={props.value}
+          error={props.error}
+          invalid={props.invalid}
+          ref={props.ref}
         />
       )
     default:

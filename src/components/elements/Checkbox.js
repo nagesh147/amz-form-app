@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
 
-const Checkbox = ({ formItem, renderNextOrderFields, onChange, value }) => {
+const Checkbox = ({
+  formItem,
+  renderNextOrderFields,
+  onChange,
+  value,
+  error,
+  invalid,
+  ref,
+}) => {
   console.log(value)
   const [event, setEvent] = useState(null)
   const [selectedOptions, setSelectedOptions] = useState([])
 
   useEffect(() => {
     let cbOptions = {}
-    formItem.dataTypeValue.split(',').map((checkValue) => {
-      cbOptions[checkValue] = false
-    })
+    formItem.dataTypeValue
+      .split(',')
+      .map((checkValue) => (cbOptions[checkValue] = false))
     setSelectedOptions(cbOptions)
   }, [])
 
@@ -40,6 +48,7 @@ const Checkbox = ({ formItem, renderNextOrderFields, onChange, value }) => {
                   value={checkValue}
                   htmlFor={checkValue}
                   onChange={(e) => {
+                    e.persist()
                     selectedOptionsHandler(e, checkValue)
                     setEvent(e)
                     onChange(e.target.checked)
@@ -53,6 +62,11 @@ const Checkbox = ({ formItem, renderNextOrderFields, onChange, value }) => {
         </div>
       </div>
       {event && renderNextCheck(event)}
+      {error && error.ref.name && error.type === 'required' && (
+        <div className="checkboxWrapper errorMsg">
+          <span className="astr">* </span>required field
+        </div>
+      )}
     </>
   )
 }
