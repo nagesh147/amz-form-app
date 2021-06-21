@@ -8,7 +8,6 @@ const Text = ({
   value,
   error,
   invalid,
-  ref,
 }) => {
   const renderNextCheck = (e) => {
     e.persist()
