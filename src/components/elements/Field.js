@@ -16,7 +16,6 @@ const Field = (props) => {
           value={props.value}
           error={props.error}
           invalid={props.invalid}
-          ref={props.ref}
         />
       )
     case 'picklist':
@@ -28,7 +27,6 @@ const Field = (props) => {
           value={props.value}
           error={props.error}
           invalid={props.invalid}
-          ref={props.ref}
         />
       )
     case 'text':
@@ -40,7 +38,6 @@ const Field = (props) => {
           value={props.value}
           error={props.error}
           invalid={props.invalid}
-          ref={props.ref}
         />
       )
     default:

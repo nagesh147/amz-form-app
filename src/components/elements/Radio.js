@@ -7,7 +7,6 @@ const Radio = ({
   value,
   error,
   invalid,
-  ref,
 }) => {
   const [eventEl, setEventEl] = useState(null)
   const renderNextCheck = (e) => e && renderNextOrderFields(e, formItem)

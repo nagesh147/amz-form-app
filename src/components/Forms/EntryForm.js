@@ -64,7 +64,6 @@ export default function EntryForm() {
                 error={error}
                 invalid={invalid}
                 onChange={onChange}
-                ref={ref}
               />
             )}
             rules={{
