@@ -19,7 +19,7 @@ const Checkbox = ({
       .split(',')
       .map((checkValue) => (cbOptions[checkValue] = false))
     setSelectedOptions(cbOptions)
-  }, [])
+  }, [formItem.dataTypeValue])
 
   const selectedOptionsHandler = (e, checkValue) => {
     setSelectedOptions((prevState) => ({
