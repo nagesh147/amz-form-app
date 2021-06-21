@@ -10,7 +10,6 @@ const Checkbox = ({
   invalid,
   ref,
 }) => {
-  console.log(value)
   const [event, setEvent] = useState(null)
   const [selectedOptions, setSelectedOptions] = useState([])
 

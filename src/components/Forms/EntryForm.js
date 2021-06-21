@@ -17,12 +17,11 @@ export default function EntryForm() {
   const renderNextOrderFields = (event, formItem, optionalArg) => {
     const selectedVal = event.target.value
     const name = formItem.name
-    console.log({ selectedVal, name, optionalArg })
     return renderFormFields(selectedVal, name, optionalArg)
   }
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data))
+    console.dir(data)
   }
 
   const renderFormFields = (
