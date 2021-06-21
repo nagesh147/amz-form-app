@@ -50,7 +50,7 @@ const Checkbox = ({
                     e.persist()
                     selectedOptionsHandler(e, checkValue)
                     setEvent(e)
-                    onChange(e.target.checked)
+                    onChange(selectedOptions)
                   }}
                   name={formItem.dataTypeValue}
                 />
