@@ -44,3 +44,7 @@ input[type='radio']:checked {
 .cbLabel {
   padding: 0 5px;
 }
+.errorMsg {
+  color: red;
+  font-size: 12px;
+}

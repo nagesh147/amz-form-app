@@ -45,6 +45,7 @@ export default function EntryForm() {
           } else {
             return i.parentIdentifier === identifier
           }
+          return null
         })
         .map((formItem) => (
           <Controller
@@ -61,7 +62,10 @@ export default function EntryForm() {
                 formItem={formItem}
                 renderNextOrderFields={renderNextOrderFields}
                 value={value}
+                error={error}
+                invalid={invalid}
                 onChange={onChange}
+                ref={ref}
               />
             )}
             rules={{
