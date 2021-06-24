@@ -3,8 +3,17 @@ import jsonData from '../../data.json'
 import Field from '../elements/Field'
 import { useForm, Controller } from 'react-hook-form'
 import './styles.css'
+import { useQuery, gql } from '@apollo/client'
 
 export default function EntryForm() {
+  const EXCHANGE_RATES = gql`
+    {
+      claimsData
+    }
+  `
+  const { loading, error, data } = useQuery(EXCHANGE_RATES)
+
+  data && console.log('Apollo GraphQl DATA', data)
   const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
