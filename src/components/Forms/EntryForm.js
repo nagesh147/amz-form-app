@@ -1,6 +1,6 @@
 import React from 'react'
 import jsonData from '../../data.json'
-import Field from '../elements/Field'
+import Field from '../Elements/Field'
 import { useForm, Controller } from 'react-hook-form'
 import './styles.css'
 

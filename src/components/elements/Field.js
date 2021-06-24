@@ -1,7 +1,7 @@
 import React from 'react'
-import Radio from '../elements/Radio'
-import Text from '../elements/Text'
-import Checkbox from '../elements/Checkbox'
+import Radio from './Radio'
+import Text from './Text'
+import Checkbox from './Checkbox'
 import './styles.css'
 
 const Field = (props) => {
