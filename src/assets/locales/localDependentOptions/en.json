@@ -1,0 +1,16 @@
+{
+    "resources": {
+      "date": {
+        "formats": {
+          "dashboard_header": "dddd, MMM D",
+          "js_datepicker_aria": "dddd, MMMM D",
+          "js_datepicker": "M d, yy",
+          "long_month_day": "MMMM DD",
+          "opportunity_date": "MMM DD, dddd",
+          "long": "D MMMM YYYY",
+          "shortDayMonth": "DD MMM",
+          "short_time": "h:mm A"
+        }
+      }
+    }
+  }

@@ -12,3 +12,10 @@
   margin: 10px 0;
   padding: 0 25px;
 }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: lightgrey;
+}
