@@ -12,19 +12,31 @@ export default function Header() {
     <div>
       <div className=" App App-header">
         <h1>{t('title')}</h1>
-        <button type="button" onClick={() => changeLanguage('de')}>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => changeLanguage('de')}
+        >
           German
         </button>
-        <button type="button" onClick={() => changeLanguage('en')}>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => changeLanguage('en')}
+        >
           English
         </button>
-        <button type="button" onClick={() => changeLanguage('fr')}>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => changeLanguage('fr')}
+        >
           French
         </button>
-
-        <p>{t('text')}</p>
       </div>
-      <h2 style={{ paddingLeft: '25px' }}>{t('text')}</h2>
+      <h3 style={{ paddingLeft: '25px', color: 'darkslategrey' }}>
+        {t('text')}
+      </h3>
     </div>
   )
 }
