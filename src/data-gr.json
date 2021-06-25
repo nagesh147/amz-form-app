@@ -1,0 +1,80 @@
+[
+  {
+    "parentIdentifier": "",
+    "name": "Q-0095",
+    "question": "Is the leave of absence for your own injury or illness?",
+    "dataType": "radio",
+    "dataTypeValue": "Yes,No",
+    "isRequired": true,
+    "id": "a3Y03000000HXrpEAG"
+  },
+
+  {
+    "parentIdentifier": "",
+    "name": "Q-0095",
+    "question": "Ist die Beurlaubung wegen einer eigenen Verletzung oder Krankheit?",
+    "dataType": "Radio",
+    "dataTypeValue": "Ja,Nein",
+    "isRequired": true,
+    "id": "a3Y03000000HXrpEAG"
+  },
+  {
+    "parentIdentifier": "Q-0095",
+    "name": "Q-0096",
+    "question": "Ist die Beurlaubung wegen einer Verletzung oder Krankheit?",
+    "dataType": "Radio",
+    "dataTypeValue": "Verletzung, Krankheit",
+    "isRequired": true,
+    "selectedOption": "Ja",
+    "id": "a3Y03000000HXrqEAG"
+  },
+  {
+    "parentIdentifier": "Q-0095",
+    "name": "Q-0700",
+    "question": "",
+    "dataType": "",
+    "staticMessage": " Diese Option sollte gewählt werden, wenn Sie wegen Ihrer eigenen Verletzung oder Krankheit eine Auszeit benötigen. Wenn Sie aus einem anderen Grund eine Auszeit benötigen, gehen Sie bitte zurück und wählen Sie einen anderen Beurlaubungsgrund.",
+    "selectedOption": "Nein",
+    "id": "Radio0"
+  },
+  {
+    "parentIdentifier": "Q-0095",
+    "name": "Q-0701",
+    "question": "Radio1",
+    "dataType": "Radio2",
+    "dataTypeValue": "Radio3",
+    "isRequired": true,
+    "selectedOption": "Ja",
+    "id": "Radio4"
+  },
+  {
+    "parentIdentifier": "Q-0701",
+    "name": "Q-0702",
+    "question": "Radio5",
+    "dataType": "Radio6",
+    "dataTypeValue": "",
+    "isRequired": true,
+    "selectedOption": "Radio7",
+    "id": "Radio8"
+  },
+  {
+    "parentIdentifier": "Q-0701",
+    "name": "Q-0705",
+    "question": "Radio9",
+    "dataType": "Radio6",
+    "dataTypeValue": "",
+    "isRequired": true,
+    "selectedOption": "Radio7",
+    "id": "Ja,Nein0"
+  },
+  {
+    "parentIdentifier": "Q-0095",
+    "name": "Q-0146",
+    "question": "Ja,Nein1",
+    "dataType": "Radio",
+    "dataTypeValue": "Ja,Nein",
+    "isRequired": true,
+    "selectedOption": "Ja",
+    "id": "Ja,Nein2"
+  }
+]

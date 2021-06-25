@@ -2,9 +2,12 @@ import React from 'react'
 import jsonData from '../../data.json'
 import Field from '../Elements/Field'
 import { useForm, Controller } from 'react-hook-form'
+import jsonDataEng from '../../data-en.json'
+import { useTranslation } from 'react-i18next'
 import './styles.css'
 
 export default function EntryForm() {
+  const { t, i18n } = useTranslation()
   const { handleSubmit, control } = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
@@ -30,8 +33,8 @@ export default function EntryForm() {
     optionalArg = ''
   ) => {
     const el =
-      jsonData &&
-      jsonData
+      jsonDataEng &&
+      jsonDataEng
         .filter((i) => {
           if (identifier !== '' && !optionalArg) {
             return (
@@ -78,7 +81,7 @@ export default function EntryForm() {
     <form className="entryForm" onSubmit={handleSubmit(onSubmit)}>
       {renderFormFields()}
       <button className="btn" type="submit">
-        Submit
+        {t('submit')}
       </button>
     </form>
   )
