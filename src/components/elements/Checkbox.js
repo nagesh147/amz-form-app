@@ -27,8 +27,11 @@ const Checkbox = ({
     }))
   }
 
-  const renderNextCheck = (e) =>
+  const renderNextCheck = (e) => {
+    onChange(selectedOptions)
     renderNextOrderFields(e, formItem, selectedOptions)
+    event.persist()
+  }
 
   return (
     <>
@@ -46,10 +49,8 @@ const Checkbox = ({
                   value={checkValue}
                   htmlFor={checkValue}
                   onChange={(e) => {
-                    e.persist()
                     selectedOptionsHandler(e, checkValue)
                     setEvent(e)
-                    onChange(selectedOptions)
                   }}
                   name={formItem.dataTypeValue}
                 />
